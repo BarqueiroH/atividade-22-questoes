@@ -1,0 +1,19 @@
+
+function verificarMultiplos() {
+  
+    const a = parseInt(prompt("Digite o primeiro valor (a):"));
+    const b = parseInt(prompt("Digite o segundo valor (b):"));
+
+  
+    console.log("Valores digitados: a =", a, ", b =", b);
+
+ 
+    if (a % b === 0 || b % a === 0) {
+        console.log("São múltiplos");
+    } else {
+        console.log("Não são múltiplos");
+    }
+}
+
+
+verificarMultiplos();
