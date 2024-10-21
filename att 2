@@ -1,15 +1,16 @@
-function encontrarMaior() {
+function name(){
     
-    const a = parseFloat(prompt("Digite o primeiro valor (a):"));
-    const b = parseFloat(prompt("Digite o segundo valor (b):"));
-    const c = parseFloat(prompt("Digite o terceiro valor (c):"));
-   
-    console.log("Valores digitados: a =", a, ", b =", b, ", c =", c);
- 
-    const maiorAB = (a + b + Math.abs(a - b)) / 2;
+const a = parseFloat(prompt("digite o primeiro número"));
+const b = parseFloat(prompt("digite o segundo número"));
+const c = parseFloat(prompt("digite o terceiro número"));
+
+console.log ("esses são os três números que vc digitou: a=",a,"b=",b,"c=",c);
+
+const maiorAB = (a + b + Math.abs(a - b)) / 2;
     
     const maior = (maiorAB + c + Math.abs(maiorAB - c)) / 2;
  
     console.log(maior + " é o maior.");
+
 }
-encontrarMaior();
+name();
