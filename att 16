@@ -1,0 +1,25 @@
+function ordenarValores(i, a, b, c) {
+    if (i === 1) {
+        const valores = [a, b, c];
+        valores.sort((x, y) => x - y);
+        console.log(`Valores em ordem crescente: ${valores.join(', ')}`);
+    } else if (i === 2) {
+        const valores = [a, b, c];
+        valores.sort((x, y) => y - x);
+        console.log(`Valores em ordem decrescente: ${valores.join(', ')}`);
+    } else if (i === 3) {
+        const maior = Math.max(a, b, c);
+        const valores = [a, b, c].filter(valor => valor !== maior);
+        console.log(`Valores com o maior no meio: ${valores[0]}, ${maior}, ${valores[1]}`);
+    } else {
+        console.log("Valor de i inválido.");
+    }
+}
+
+
+const i = parseInt(prompt("Digite um valor inteiro (1, 2 ou 3):"));
+const a = parseFloat(prompt("Digite o valor de a:"));
+const b = parseFloat(prompt("Digite o valor de b:"));
+const c = parseFloat(prompt("Digite o valor de c:"));
+
+ordenarValores(i, a, b, c);
