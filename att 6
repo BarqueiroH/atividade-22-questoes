@@ -1,0 +1,29 @@
+function calcularMediaPonderada(codigo, nota1, nota2, nota3) {
+   
+    const notas = [nota1, nota2, nota3];
+    
+   
+    const maiorNota = Math.max(...notas);
+    const indiceMaior = notas.indexOf(maiorNota);
+    
+
+    const pesos = [3, 3, 4]; // Pesos: 3 para as menores, 4 para a maior
+    const somaNotas = notas.reduce((acc, nota, index) => acc + nota * pesos[index === indiceMaior ? 2 : 0], 0);
+    const somaPesos = 4 + 3 + 3; // Total de pesos
+
+    const media = somaNotas / somaPesos;
+
+
+    console.log(`Código do Aluno: ${codigo}`);
+    console.log(`Notas: ${nota1}, ${nota2}, ${nota3}`);
+    console.log(`Média Ponderada: ${media.toFixed(2)}`);
+    console.log(media >= 5 ? "APROVADO" : "REPROVADO");
+}
+
+
+const codigoAluno = prompt("Digite o código do aluno:");
+const nota1 = parseFloat(prompt("Digite a primeira nota:"));
+const nota2 = parseFloat(prompt("Digite a segunda nota:"));
+const nota3 = parseFloat(prompt("Digite a terceira nota:"));
+
+calcularMediaPonderada(codigoAluno, nota1, nota2, nota3);
