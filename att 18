@@ -1,0 +1,22 @@
+function calcularNotas(valor) {
+    const notas = [100, 50, 10, 5, 1];
+    const quantidadeNotas = {};
+
+    for (let nota of notas) {
+        quantidadeNotas[nota] = Math.floor(valor / nota);
+        valor %= nota;
+    }
+
+    console.log(`Valor lido: R$ ${valor}`);
+    console.log("Notas necessárias:");
+
+    for (let nota of notas) {
+        if (quantidadeNotas[nota] > 0) {
+            console.log(`${quantidadeNotas[nota]} nota(s) de R$ ${nota}`);
+        }
+    }
+}
+
+
+const valor = parseFloat(prompt("Digite um valor em reais:"));
+calcularNotas(valor);
