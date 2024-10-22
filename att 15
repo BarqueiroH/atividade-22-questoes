@@ -1,0 +1,17 @@
+function calcularAreaTriangulo(a, b, c) {
+    if (a >= b + c || b >= a + c || c >= a + b) {
+        console.log(`Os valores ${a}, ${b}, ${c} não formam um triângulo.`);
+    } else {
+        const semiPerimetro = (a + b + c) / 2;
+        const area = Math.sqrt(semiPerimetro * (semiPerimetro - a) * (semiPerimetro - b) * (semiPerimetro - c));
+        console.log(`Os valores ${a}, ${b}, ${c} formam um triângulo.`);
+        console.log(`Área do triângulo: ${area.toFixed(2)}`);
+    }
+}
+
+// Exemplo de uso:
+const a = parseInt(prompt("Digite o valor de a:"));
+const b = parseInt(prompt("Digite o valor de b:"));
+const c = parseInt(prompt("Digite o valor de c:"));
+
+calcularAreaTriangulo(a, b, c);
