@@ -27,3 +27,5 @@ const codigoProduto = prompt("Digite o código do produto:");
 const quantidade = parseInt(prompt("Digite a quantidade comprada:"));
 
 calcularPrecoTotal(codigoProduto, quantidade);
+
+// ;>
