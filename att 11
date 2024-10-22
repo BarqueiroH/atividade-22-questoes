@@ -1,0 +1,30 @@
+function calcularMedia(nota1, nota2, nota3, opcao) {
+    let media;
+
+    switch (opcao) {
+        case 1:
+        
+            media = (nota1 + nota2 + nota3) / 3;
+            break;
+        case 2:
+           
+            media = (nota1 * 3 + nota2 * 3 + nota3 * 4) / (3 + 3 + 4);
+            break;
+        case 3:
+            media = 3 / ((1 / nota1) + (1 / nota2) + (1 / nota3));
+            break;
+        default:
+            console.log("Opção inválida.");
+            return;
+    }
+
+    console.log(`Média calculada: ${media.toFixed(2)}`);
+}
+
+
+const nota1 = parseFloat(prompt("Digite a primeira nota:"));
+const nota2 = parseFloat(prompt("Digite a segunda nota:"));
+const nota3 = parseFloat(prompt("Digite a terceira nota:"));
+const opcao = parseInt(prompt("Escolha a opção de média:\n1 - Aritmética\n2 - Ponderada (3,3,4)\n3 - Harmônica"));
+
+calcularMedia(nota1, nota2, nota3, opcao);
