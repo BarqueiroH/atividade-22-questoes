@@ -1,0 +1,28 @@
+function calcularCredito(saldo) {
+    let credito;
+
+
+    switch (true) {
+        case saldo >= 0 && saldo <= 200:
+            credito = 0; // Nenhum crédito
+            break;
+        case saldo >= 201 && saldo <= 400:
+            credito = saldo * 0.20; // 20% do saldo
+            break;
+        case saldo >= 401 && saldo <= 600:
+            credito = saldo * 0.30; // 30% do saldo
+            break;
+        case saldo > 600:
+            credito = saldo * 0.40; // 40% do saldo
+            break;
+        default:
+            credito = 0; // Caso inesperado
+    }
+
+    console.log(`Saldo médio: R$ ${saldo.toFixed(2)}`);
+    console.log(`Valor do crédito: R$ ${credito.toFixed(2)}`);
+}
+
+
+const saldoMedio = parseFloat(prompt("Digite o saldo médio do cliente:"));
+calcularCredito(saldoMedio);
