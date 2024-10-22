@@ -1,0 +1,25 @@
+function calcularValorLancha(codigo, quantidade) {
+   
+    const precos = {
+        100: 1.20, // Cachorro quente
+        101: 1.30, // Bauru simples
+        102: 1.50, // Bauru com ovo
+        103: 1.20, // Hambúrguer
+        104: 1.30, // Cheeseburguer
+        105: 1.00  // Refrigerante
+    };
+
+   
+    if (precos[codigo] !== undefined) {
+        const valorTotal = precos[codigo] * quantidade;
+        console.log(`Valor a ser pago: R$ ${valorTotal.toFixed(2)}`);
+    } else {
+        console.log("Código do item inválido.");
+    }
+}
+
+
+const codigoItem = parseInt(prompt("Digite o código do item:"));
+const quantidade = parseInt(prompt("Digite a quantidade:"));
+
+calcularValorLancha(codigoItem, quantidade);
