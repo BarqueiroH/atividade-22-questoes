@@ -1,0 +1,22 @@
+function calcularPesoIdeal(altura, sexo) {
+    let pesoIdeal;
+
+    if (sexo === 'M' || sexo === 'm') {
+       
+        pesoIdeal = (72.7 * altura) - 58;
+    } else if (sexo === 'F' || sexo === 'f') {
+        
+        pesoIdeal = (62.1 * altura) - 44.7;
+    } else {
+        console.log("Sexo inválido. Use 'M' para masculino e 'F' para feminino.");
+        return;
+    }
+
+    console.log(`Peso ideal: ${pesoIdeal.toFixed(2)} kg`);
+}
+
+
+const altura = parseFloat(prompt("Digite sua altura em metros:"));
+const sexo = prompt("Digite seu sexo (M para masculino, F para feminino):");
+
+calcularPesoIdeal(altura, sexo);
