@@ -1,0 +1,29 @@
+function calcularPrecoTotal(codigo, quantidade) {
+    let precoUnitario;
+
+    switch (codigo) {
+        case 'ABCD':
+            precoUnitario = 5.30;
+            break;
+        case 'XYPK':
+            precoUnitario = 6.00;
+            break;
+        case 'KLMP':
+            precoUnitario = 3.20;
+            break;
+        case 'QRST':
+            precoUnitario = 2.50;
+            break;
+        default:
+            console.log("Código do produto inválido.");
+            return;
+    }
+
+    const total = precoUnitario * quantidade;
+    console.log(`Preço total: R$ ${total.toFixed(2)}`);
+}
+
+const codigoProduto = prompt("Digite o código do produto:");
+const quantidade = parseInt(prompt("Digite a quantidade comprada:"));
+
+calcularPrecoTotal(codigoProduto, quantidade);
