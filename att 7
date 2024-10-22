@@ -1,0 +1,21 @@
+function verificarNumero(num) {
+   
+    const parOuImpar = (num % 2 === 0) ? "par" : "ímpar";
+    
+  
+    let positivoOuNegativo;
+    if (num > 0) {
+        positivoOuNegativo = "positivo";
+    } else if (num < 0) {
+        positivoOuNegativo = "negativo";
+    } else {
+        positivoOuNegativo = "zero";
+    }
+
+  
+    console.log(`O número ${num} é ${parOuImpar} e ${positivoOuNegativo}.`);
+}
+
+
+const numero = parseInt(prompt("Digite um número inteiro:"));
+verificarNumero(numero);
