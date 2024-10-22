@@ -1,0 +1,32 @@
+function calcularPrecoTotal(codigo, quantidade) {
+    let precoUnitario;
+
+    switch (codigo) {
+        case 1001:
+            precoUnitario = 5.32;
+            break;
+        case 1324:
+            precoUnitario = 6.45;
+            break;
+        case 6548:
+            precoUnitario = 2.37;
+            break;
+        case 987:
+            precoUnitario = 5.32;
+            break;
+        case 7623:
+            precoUnitario = 6.45;
+            break;
+        default:
+            console.log("Código do produto inválido.");
+            return;
+    }
+
+    const total = precoUnitario * quantidade;
+    console.log(`Preço total: R$ ${total.toFixed(2)}`);
+}
+
+const codigoProduto = parseInt(prompt("Digite o código do produto:"));
+const quantidade = parseInt(prompt("Digite a quantidade comprada:"));
+
+calcularPrecoTotal(codigoProduto, quantidade);
