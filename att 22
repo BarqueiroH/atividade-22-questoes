@@ -1,0 +1,22 @@
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+readline.question("Digite o índice de poluição: ", (input) => {
+    const indicePoluicao = parseFloat(input);
+
+    if (indicePoluicao < 0.05 || indicePoluicao > 0.5) {
+        console.log("Índice de poluição fora do intervalo aceitável.");
+    } else if (indicePoluicao >= 0.3 && indicePoluicao < 0.4) {
+        console.log("Indústrias do 1º grupo devem suspender suas atividades.");
+    } else if (indicePoluicao >= 0.4 && indicePoluicao < 0.5) {
+        console.log("Indústrias do 1º e 2º grupo devem suspender suas atividades.");
+    } else if (indicePoluicao >= 0.5) {
+        console.log("Todos os 3 grupos de indústrias devem suspender suas atividades.");
+    } else {
+        console.log("Índice de poluição aceitável.");
+    }
+
+    readline.close();
+});
