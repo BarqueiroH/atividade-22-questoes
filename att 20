@@ -1,30 +1,27 @@
-import java.util.Scanner;
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-public class DuracaoJogo {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+readline.question("Digite a hora de início (horas minutos): ", (inicio) => {
+    const [horaInicio, minutoInicio] = inicio.split(' ').map(Number);
 
-        System.out.print("Digite a hora de início (horas minutos): ");
-        int horaInicio = scanner.nextInt();
-        int minutoInicio = scanner.nextInt();
+    readline.question("Digite a hora de término (horas minutos): ", (fim) => {
+        const [horaFim, minutoFim] = fim.split(' ').map(Number);
 
-        System.out.print("Digite a hora de término (horas minutos): ");
-        int horaFim = scanner.nextInt();
-        int minutoFim = scanner.nextInt();
-
-        int totalMinutosInicio = horaInicio * 60 + minutoInicio;
-        int totalMinutosFim = horaFim * 60 + minutoFim;
+        let totalMinutosInicio = horaInicio * 60 + minutoInicio;
+        let totalMinutosFim = horaFim * 60 + minutoFim;
 
         if (totalMinutosFim < totalMinutosInicio) {
             totalMinutosFim += 24 * 60;
         }
 
-        int duracaoMinutos = totalMinutosFim - totalMinutosInicio;
-        int duracaoHoras = duracaoMinutos / 60;
-        int duracaoMinutosRestantes = duracaoMinutos % 60;
+        let duracaoMinutos = totalMinutosFim - totalMinutosInicio;
+        let duracaoHoras = Math.floor(duracaoMinutos / 60);
+        let duracaoMinutosRestantes = duracaoMinutos % 60;
 
-        System.out.printf("Duração do jogo: %d horas e %d minutos%n", duracaoHoras, duracaoMinutosRestantes);
+        console.log(`Duração do jogo: ${duracaoHoras} horas e ${duracaoMinutosRestantes} minutos`);
 
-        scanner.close();
-    }
-}
+        readline.close();
+    });
+});
