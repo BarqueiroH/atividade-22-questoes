@@ -1,41 +1,50 @@
-import java.util.Scanner;
+javascript
+Copiar código
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-public class MediaAproveitamento {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+readline.question("Digite o número de identificação do aluno: ", (numeroIdentificacao) => {
+    readline.question("Digite a nota 1: ", (nota1) => {
+        readline.question("Digite a nota 2: ", (nota2) => {
+            readline.question("Digite a nota 3: ", (nota3) => {
+                readline.question("Digite a média dos exercícios: ", (mediaExercicios) => {
+                    nota1 = parseFloat(nota1);
+                    nota2 = parseFloat(nota2);
+                    nota3 = parseFloat(nota3);
+                    mediaExercicios = parseFloat(mediaExercicios);
 
-        System.out.print("Digite o número de identificação do aluno: ");
-        int numeroIdentificacao = scanner.nextInt();
+                    const mediaAproveitamento = (nota1 + (nota2 * 2) + (nota3 * 3) + mediaExercicios) / 7;
 
-        System.out.print("Digite a nota 1: ");
-        double nota1 = scanner.nextDouble();
-        System.out.print("Digite a nota 2: ");
-        double nota2 = scanner.nextDouble();
-        System.out.print("Digite a nota 3: ");
-        double nota3 = scanner.nextDouble();
+                    let conceito;
+                    if (mediaAproveitamento >= 9.0) {
+                        conceito = "A";
+                    } else if (mediaAproveitamento >= 7.5) {
+                        conceito = "B";
+                    } else if (mediaAproveitamento >= 6.0) {
+                        conceito = "C";
+                    } else if (mediaAproveitamento >= 4.0) {
+                        conceito = "D";
+                    } else {
+                        conceito = "E";
+                    }
 
-        System.out.print("Digite a média dos exercícios: ");
-        double mediaExercicios = scanner.nextDouble();
+ console.log(`Número de Identificação: ${numeroIdentificacao}`);
+ console.log(`Notas: ${nota1.toFixed(2)}, ${nota2.toFixed(2)}, ${nota3.toFixed(2)}`);
+ console.log(`Média dos Exercícios: ${mediaExercicios.toFixed(2)}`);
+ console.log(`Média de Aproveitamento: ${mediaAproveitamento.toFixed(2)}`); 
+console.log(`Conceito: ${conceito}`);
 
-        double mediaAproveitamento = (nota1 + (nota2 * 2) + (nota3 * 3) + mediaExercicios) / 7;
+                    if (conceito === "A" || conceito === "B" || conceito === "C") {
+                        console.log("APROVADO");
+                    } else {
+                        console.log("REPROVADO");
+                    }
 
-        String conceito;
-        if (mediaAproveitamento >= 9.0) {
-            conceito = "A";
-        } else if (mediaAproveitamento >= 7.5) {
-            conceito = "B";
-        } else if (mediaAproveitamento >= 6.0) {
-            conceito = "C";
-        } else if (mediaAproveitamento >= 4.0) {
-            conceito = "D";
-        } else {
-            conceito = "E";
-        }
-
-        System.out.printf("Número de Identificação: %d%n", numeroIdentificacao);
-        System.out.printf("Média de Aproveitamento: %.2f%n", mediaAproveitamento);
-        System.out.printf("Conceito: %s%n", conceito);
-
-        scanner.close();
-    }
-}
+                    readline.close();
+                });
+            });
+        });
+    });
+});
