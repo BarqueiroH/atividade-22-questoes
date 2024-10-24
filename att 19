@@ -1,32 +1,33 @@
-java
-Copiar código
-import java.util.Scanner;
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-public class CalculoIPI {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+readline.question("Digite a percentagem do IPI: ", (ipiInput) => {
+    const ipi = parseFloat(ipiInput);
 
-        System.out.print("Digite a percentagem do IPI: ");
-        double ipi = scanner.nextDouble();
+    readline.question("Código da peça 1: ", (codigo1) => {
+        readline.question("Valor unitário da peça 1: ", (valor1Input) => {
+            const valor1 = parseFloat(valor1Input);
 
-        System.out.print("Código da peça 1: ");
-        int codigo1 = scanner.nextInt();
-        System.out.print("Valor unitário da peça 1: ");
-        double valor1 = scanner.nextDouble();
-        System.out.print("Quantidade da peça 1: ");
-        int quant1 = scanner.nextInt();
+            readline.question("Quantidade da peça 1: ", (quant1Input) => {
+                const quant1 = parseInt(quant1Input);
 
-        System.out.print("Código da peça 2: ");
-        int codigo2 = scanner.nextInt();
-        System.out.print("Valor unitário da peça 2: ");
-        double valor2 = scanner.nextDouble();
-        System.out.print("Quantidade da peça 2: ");
-        int quant2 = scanner.nextInt();
+                readline.question("Código da peça 2: ", (codigo2) => {
+                    readline.question("Valor unitário da peça 2: ", (valor2Input) => {
+                        const valor2 = parseFloat(valor2Input);
 
-        double valorTotal = (valor1 * quant1 + valor2 * quant2) * (ipi / 100 + 1);
+                        readline.question("Quantidade da peça 2: ", (quant2Input) => {
+                            const quant2 = parseInt(quant2Input);
 
-        System.out.printf("Valor total a ser pago: %.2f%n", valorTotal);
+                            const valorTotal = (valor1 * quant1 + valor2 * quant2) * (ipi / 100 + 1);
+                            console.log(`Valor total a ser pago: ${valorTotal.toFixed(2)}`);
 
-        scanner.close();
-    }
-}
+                            readline.close();
+                        });
+                    });
+                });
+            });
+        });
+    });
+});
